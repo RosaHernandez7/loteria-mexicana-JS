@@ -1,0 +1,20 @@
+.container2 {
+    position: relative;
+    width: 100%;
+  }
+
+  .container2  {
+    width: 100%;
+    height: auto;
+  }
+  
+.btn-position{
+    position: relative !important;
+    width: 100%;
+
+}
+
+.boton-rojo{
+    position: absolute !important;
+    width: 100%;
+}
