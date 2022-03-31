@@ -14,14 +14,33 @@
 
     <title>Tablero 3</title>
     <script>
+        let contador =0;
+
         function marcarCasilla(num){
-            // validar src de active es igual al src de img-num 
+           
             let dirImg = document.getElementById("imgd-"+ num).src;
-            let dirActive =document.getElementById("active-img").src;
-            if(dirImg===dirActive)
+            let dirActive = document.querySelector('.carousel-item.active img');
+            let direccion = dirActive.getAttribute('src');
+            var index = dirImg.indexOf(direccion);
+            let valorF = dirImg.substring(index,dirImg.length);
+            
+            // alert(valorF + " es igual "+ direccion);
+            if(valorF===direccion)
+            {  
+                document.getElementById("img-"+ num).style.opacity= "0.6";
+                contador++;
+            }  alert(contador); 
+            
+            
+        }
+        function validacion(contador){
+            if(contador==4)
             {
-                document.getElementById("img-"+ num).style.backgroundColor= "red";
-            }            
+                alert("Ganaste");
+            }
+            else{
+                alert("perdiste");
+            }
         }
       
     </script>
@@ -50,13 +69,13 @@
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <div class="center">
-                                <img class="imagen" id="active-img" src="images/baraja/1.jpg" class="d-block w-100" alt="...">
+                            <div class="center" id="active-img">
+                                <img class="imagen"  src="images/baraja/1.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="center">
-                                <img class="imagen" src="images/baraja/21.jpg" class="d-block w-100" alt="...">
+                                <img class="imagen"  src="images/baraja/21.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <div class="carousel-item">
@@ -71,7 +90,7 @@
                         </div>
                         <div class="carousel-item">
                             <div class="center">
-                                <img class="imagen" src="images/baraja/5.jpg" class="d-block w-100" alt="...">
+                                <img class="imagen" src="images/baraja/26.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <div class="carousel-item">

@@ -100,3 +100,24 @@
 </body>
 
 </html>
+
+<!-- 
+
+
+    <script>
+        function marcarCasilla(num){
+            // validar src de active es igual al src de img-num 
+            let dirImg = document.getElementById("imgd-"+ num).src;
+            // let dirImg = document.querySelector('.imagen1 img');
+            // let direccionImg = dirImg.getAttribute('scr');
+            let dirActive = document.querySelector('.carousel-item.active img');
+            // let dirActive =document.getElementById("active-img >imagen").src;
+            let direccion = dirActive.getAttribute('src');
+
+            alert(dirImg + " es igual "+ direccion);
+            if(dirImg===direccion)
+            {
+                document.getElementById("img-"+ num).style.backgroundColor= "red";
+            }            
+        }
+ -->
