@@ -10,10 +10,18 @@
     width: 100% !important; 
     height: 20vh !important;
 }
+.tab-img{
+    /* background-color: aliceblue; */
+}
+.tab-fondo{
+    /* background-color: black; */
+    
+}
 .space-img{
 /* padding: 20px 30px !important ; */
 background-color: rgb(255, 253, 253);
 border-radius: .5em;
+padding: 5px;
 /* overflow: scroll; */
 }
 .cardCell{
@@ -24,7 +32,7 @@ border-radius: .5em;
 
 }
 .sp-tablero{
-    padding: 20px 30px !important ;
+    padding: 50px 30px !important ;
 }
 .img-card{
     width: 100%;
