@@ -14,24 +14,33 @@
 
     <title>Tablero 3</title>
     <script>
+        let contador =0;
+
         function marcarCasilla(num){
-            // validar src de active es igual al src de img-num 
+           
             let dirImg = document.getElementById("imgd-"+ num).src;
-            // let dirImg = document.querySelector('.imagen1 img');
-            // let direccionImg = dirImg.getAttribute('scr');
             let dirActive = document.querySelector('.carousel-item.active img');
-            // let dirActive =document.getElementById("active-img >imagen").src;
             let direccion = dirActive.getAttribute('src');
-            //buscar direccion
             var index = dirImg.indexOf(direccion);
             let valorF = dirImg.substring(index,dirImg.length);
-
-
+            
             // alert(valorF + " es igual "+ direccion);
             if(valorF===direccion)
+            {  
+                document.getElementById("img-"+ num).style.opacity= "0.6";
+                contador++;
+            }  alert(contador); 
+            
+            
+        }
+        function validacion(contador){
+            if(contador==4)
             {
-                document.getElementById("img-"+ num).style.opacity= "0.5";
-            }            
+                alert("Ganaste");
+            }
+            else{
+                alert("perdiste");
+            }
         }
       
     </script>
