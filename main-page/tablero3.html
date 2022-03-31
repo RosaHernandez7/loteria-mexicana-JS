@@ -16,8 +16,12 @@
     <script>
         function marcarCasilla(num){
             // validar src de active es igual al src de img-num 
-            document.getElementById("img-"+ num).style.backgroundColor= "red";
-            
+            let dirImg = document.getElementById("imgd-"+ num).src;
+            let dirActive =document.getElementById("active-img").src;
+            if(dirImg===dirActive)
+            {
+                document.getElementById("img-"+ num).style.backgroundColor= "red";
+            }            
         }
       
     </script>
@@ -47,7 +51,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="center">
-                                <img class="imagen" src="images/baraja/1.jpg" class="d-block w-100" alt="...">
+                                <img class="imagen" id="active-img" src="images/baraja/1.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <div class="carousel-item">
@@ -110,43 +114,43 @@
                     <div class="col space-img">
                         <div class="row"> 
                             <!-- marcarCasilla() -->
-                            <div class="col cardCell" id="img-1"  onclick="marcarCasilla(1)"> <img class="img-size mx-auto d-block img-card " 
+                            <div class="col cardCell" id="img-1"  onclick="marcarCasilla(1)"> <img id="imgd-1" class="img-size mx-auto d-block img-card" 
                                     src="images/baraja/21.jpg" alt=""></div>
                             <div class="col cardCell" id="img-2"  onclick="marcarCasilla(2)" ><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/41.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-3"  onclick="marcarCasilla(3)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/12.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-4"  onclick="marcarCasilla(4)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/26.jpg" alt=""></div>
                         </div>
                         <div class="row">
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-5"  onclick="marcarCasilla(5)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/31.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-6"  onclick="marcarCasilla(6)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/51.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-7"  onclick="marcarCasilla(7)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/30.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-8"  onclick="marcarCasilla(8)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/48.jpg" alt=""></div>
                         </div>
                         <div class="row">
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-9"  onclick="marcarCasilla(9)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/27.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-10"  onclick="marcarCasilla(10)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/32.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-11"  onclick="marcarCasilla(11)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/14.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-12"  onclick="marcarCasilla(12)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/39.jpg" alt=""></div>
                         </div>
                         <div class="row">
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-13"  onclick="marcarCasilla(13)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/5.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-14"  onclick="marcarCasilla(14)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/15.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-15"  onclick="marcarCasilla(15)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/24.jpg" alt=""></div>
-                            <div class="col cardCell"><img class="img-size mx-auto d-block  img-card"
+                            <div class="col cardCell" id="img-16"  onclick="marcarCasilla(16)"><img class="img-size mx-auto d-block  img-card"
                                     src="images/baraja/28.jpg" alt=""></div>
                         </div>
                     </div>
