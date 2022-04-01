@@ -21,22 +21,65 @@ function marcarCasilla(num) {
   {
     validacion(contador);
   }
-
   else if(contador<16 && strFinal==="54.jpg"){
     // let imgFinal= "54.jpg";
     // var index1 = direccion.indexOf(imgFinal);
     // let strFinal = direccion.substring(index1, direccion.length);
-    alert("Has perdido putis");
+      validacion(contador);
   }
 
  
 }
 function validacion(contador) {
   if (contador == 16) {
-    alert("Ganaste");
-    //se despliega el modal
+      alert("Ganaste");
+      Swal.fire({
+        title: 'GANASTE :D',
+        text:  '¿Ya terminaste tus deberes?',
+        //html: '<img src="ganaste.jpg" alt="" />',
+        confirmButtonText: 'Salir del Juego',
+        //confirmButtonText: 'Volver a Jugar',
+        //width: '45%',
+        padding: '1rem',
+        background: '#000',
+        //grow: 'row',
+        backdrop: true,
+        //timer: 5000,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: true,
+        stopKeydownPropagation: false,
+    
+        imageUrl: 'js/ganaste.jpg',
+        imageWidth: '100%',
+        imageHeight: '50vh',
+        imageAlt: 'bob esponja',
+    
+    })
   } else {
-    alert("Perdiste");
-    //se mantiene oculto el modal
+    // alert("Perdiste");
+      Swal.fire({
+        title: 'PERDISTE !!!!',
+        text:  'Fracasaste',
+        //html: '<img src="ganaste.jpg" alt="" />',
+        confirmButtonText: 'Volver a Jugar',
+        //confirmButtonText: 'Volver a Jugar',
+        //width: '45%',
+        padding: '1rem',
+        background: '#000',
+        //grow: 'row',
+        backdrop: true,
+        //timer: 5000,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: true,
+        stopKeydownPropagation: false,
+    
+        imageUrl: 'js/perdiste.jpg',
+        imageWidth: '100%',
+        imageHeight: '50vh',
+        imageAlt: 'bob esponja',
+    
+    })
   }
 }
