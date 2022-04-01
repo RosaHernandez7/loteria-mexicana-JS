@@ -32,7 +32,7 @@ function marcarCasilla(num) {
 }
 function validacion(contador) {
   if (contador == 16) {
-      alert("Ganaste");
+      // alert("Ganaste");
       Swal.fire({
         title: 'GANASTE :D',
         text:  '¿Ya terminaste tus deberes?',
@@ -49,7 +49,6 @@ function validacion(contador) {
         allowEscapeKey: false,
         allowEnterKey: true,
         stopKeydownPropagation: false,
-    
         imageUrl: 'js/ganaste.jpg',
         imageWidth: '100%',
         imageHeight: '50vh',
@@ -74,7 +73,6 @@ function validacion(contador) {
         allowEscapeKey: false,
         allowEnterKey: true,
         stopKeydownPropagation: false,
-    
         imageUrl: 'js/perdiste.jpg',
         imageWidth: '100%',
         imageHeight: '50vh',
