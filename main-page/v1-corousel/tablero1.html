@@ -22,7 +22,7 @@
     <title>Tablero 1</title>
 </head>
 
-<body>
+<body onload="ponerNombre()">
 
     <div class="container-fluid ">
         <div class="row">
@@ -41,7 +41,7 @@
         <div class="row cr-tablero">
             <div class="col col-12 col-md-5 ">
                 <!-- N LA SIGUINETE LINEA PARA EL RANDOM -->
-                <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="hover">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="hover">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="center">
@@ -321,15 +321,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                </div> -->
-                <!-- Mostrar imágenes una por una -->
-
-                
-                <div>
-                    <img  loading="lazy" id="aaa" src="images/baraja/1.jpg" width="400" height="400" name="image" />
                 </div>
-                <button id="btn-sig" >Iniciar juego</button>
-            
             </div>
 
             <div class="col col-12  col-md-7 tab-fondo ">
@@ -389,6 +381,7 @@
         <script src="js/nombre.js"></script>
         <script src="js/carousel.js"></script>
 
+    <script src="js/tablero1.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <script src="js/alertas.js"></script>
   <script src="js/alerta2.js"></script> -->
