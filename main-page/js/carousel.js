@@ -83,39 +83,43 @@
 // }
 
 let btn_sig = document.getElementById("btn-sig");
+let index=0; //contador de imágenes
 
 /* Array de imágenes */
-let img_array = [];
-for(let i=1;i<=54;i++)
-{
-    img_array.push("../main-page/images/baraja/"+i+".jpg");
-}
-//Se agrega evento onclick al boton 
-btn_sig.onclick = iniciarJuego();
-let index=0;
-let min = 1;
-let max =55;
 
+//Se agrega evento onclick al boton 
+// btn_sig.onclick = iniciarJuego();
+
+/*Lo primero es desacomodar el arreglo*/
+// img_array=img_array.sort(function(){
+//     return Math.random() - 0.5 //por qué 0.5??????
+//     });
+//     alert(img_array); //para corroborar el orden del arreglo
+let img_array = [];
+    for(let i=2;i<=10;i++)
+    {
+        img_array.push("../main-page/images/baraja/"+i+".jpg");
+    }
 function iniciarJuego()
-{
+{   
+
     btn_sig.addEventListener("click", (e)=>
     {   let image = document.getElementById("aaa");
         
-        // alert("inicia el juego");
         const myInterval = setInterval(function slide(){
-            index = Math.floor(Math.random() * (55 - 2)) + 2;
-              
-              console.log(index);
-            image.setAttribute("src", img_array[index] );
-            // image.src = img_array[index]; // es igual a document["aaa"].src = img_array[index];
-            
-            // index++; //este debe ser un nuemro random 
+                       
+            // image.setAttribute("src", img_array[index] );
+            image.src = img_array[index];
+            index++;
+
             if(index>=img_array.length)
-            {
-            // index=0;
+            {  //cuando llegue al último elemnto se dentendra el intervalo
                 clearInterval(myInterval);
+                // index=0;
             }
-        }, 2000);       
+        }, 1000);       
     }); 
 }
+
+btn_sig.onclick = iniciarJuego();
 
