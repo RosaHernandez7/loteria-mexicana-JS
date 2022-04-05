@@ -100,6 +100,13 @@ let img_array = [];
     {
         img_array.push("../main-page/images/baraja/"+i+".jpg");
     }
+/*Lo primero es desacomodar el arreglo*/
+ img_array=img_array.sort(function(){
+     return Math.random() - 0.5 //por qué 0.5??????
+     });
+    //  alert(img_array); //para corroborar el orden del arreglo
+
+
 function iniciarJuego()
 {   
 
