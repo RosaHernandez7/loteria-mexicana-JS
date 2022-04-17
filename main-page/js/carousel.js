@@ -10,69 +10,32 @@ for (
 ) {
   img_array.push("../main-page/images/baraja/" + i + ".jpg");
 }
-/*******En este apartado desordene el array  de imágenes*******/ 
+/*******En este apartado desordene el array  de imágenes*******/
 img_array = img_array.sort(function () {
   return Math.random() - 0.5; //por qué 0.5??????
 });
 // alert(img_array); //para corroborar el orden del arreglo
 
-//Se agrega evento onclick al boton
-// btn_sig.addEventListener("click", iniciarJuego());
-
-iniciarJuego();
 /*******Función para mostrar la baraja*******/
 
 let image = document.getElementById("imgBaraja");
-/**falla el boton */
-// function iniciarJuego() {
-//   // btn_sig.removeEventListener("click", iniciarJuego());
-//   let index = 0; //indice del arreglo de imágenes
-//   btn_sig.addEventListener("click", (e) => {
-//     // btn_sig.removeEventListener("click", this);
-//     const myInterval = setInterval(function slide() { 
-//       //   alert("index -> "+ index);
-//       image.src = img_array[index];
-//       index++;
-//       console.log("indxex: " + index);
-//       if (index >= img_array.length) {
-        
 
-//         if(index===53)
-//         {  
-//            validacion(); //todavia hace falta gregar la parte donde se llega a la ultima carta y no se alcanza a seleccionar la carta del tablero y sale inmediatamente el modal
-//         }
-//         clearInterval(myInterval);
-//       }
-      
-//     }, 2000);
-//   });
-// }
-
-
-function iniciarJuego() {
-  // btn_sig.removeEventListener("click", iniciarJuego());
-  let index = 0; //indice del arreglo de imágenes
-  btn_sig.addEventListener("click", (e) => {
-    // btn_sig.removeEventListener("click", this);
-    const myInterval = setInterval(function slide() { 
-      //   alert("index -> "+ index);
-      image.src = img_array[index];
-      index++;
-      console.log("indxex: " + index);
-      if (index >= img_array.length) {
-        
-
-        if(index===53)
-        {  
-           validacion(); //todavia hace falta gregar la parte donde se llega a la ultima carta y no se alcanza a seleccionar la carta del tablero y sale inmediatamente el modal
-        }
-        clearInterval(myInterval);
+let index = 0; //indice del arreglo de imágenes
+btn_sig.addEventListener("click", function iniciarJuego() {
+  btn_sig.removeEventListener("click", iniciarJuego); //una vez que se presiona el boton de inicio ya no  puede volver a reinciar el juego
+  const myInterval = setInterval(function slide() {
+    //   alert("index -> "+ index);
+    image.src = img_array[index];
+    index++;
+    console.log("indxex: " + index);
+    if (index >= img_array.length) {
+      if (index === 53) {
+        validacion(); //todavia hace falta gregar la parte donde se llega a la ultima carta y no se alcanza a seleccionar la carta del tablero y sale inmediatamente el modal
       }
-      
-    }, 2000);
-  });
-}
-
+      clearInterval(myInterval);
+    }
+  }, 2000);
+});
 
 
 /******* Declaraciones y definiciones para marcar la casilla *******/
@@ -96,65 +59,55 @@ function opacarCelda(e) {
     // console.log("cont: " + cont);
     e.currentTarget.removeEventListener("click", opacarCelda); //se remueve el evento para que no aumente el contador de celdas marcadas
   }
-
 }
 
-//ESTA FUNCION ES LA QUE GENERA QUE NO SE PUEDA REINCIAR 
+//ESTA FUNCION ES LA QUE GENERA QUE NO SE PUEDA REINCIAR
 function validacion() {
   if (cont === 16) {
-      // alert("Ganaste");
-      Swal.fire({
-        title: 'GANASTE :D',
-        text:  '¿Ya terminaste tus deberes?',
-        //html: '<img src="ganaste.jpg" alt="" />',
-        confirmButtonText: 'Salir del Juego',
-        // confirmButtonText: 'Volver a Jugar',
-        //width: '45%',
-        padding: '1rem',
-        background: '#000',
-        //grow: 'row',
-        backdrop: true,
-        //timer: 5000,
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        allowEnterKey: true,
-        stopKeydownPropagation: false,
-        imageUrl: 'js/ganaste.jpg',
-        imageWidth: '100%',
-        imageHeight: '50vh',
-        imageAlt: 'bob esponja',
-    
+    // alert("Ganaste");
+    Swal.fire({
+      title: "GANASTE :D",
+      text: "¿Ya terminaste tus deberes?",
+      //html: '<img src="ganaste.jpg" alt="" />',
+      confirmButtonText: "Salir del Juego",
+      // confirmButtonText: 'Volver a Jugar',
+      //width: '45%',
+      padding: "1rem",
+      background: "#000",
+      //grow: 'row',
+      backdrop: true,
+      //timer: 5000,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: true,
+      stopKeydownPropagation: false,
+      imageUrl: "js/ganaste.jpg",
+      imageWidth: "100%",
+      imageHeight: "50vh",
+      imageAlt: "bob esponja",
     });
-  } 
-  else  {
+  } else {
     // alert("Perdiste");
-      Swal.fire({
-        title: 'PERDISTE !!!!',
-        text:  'Fracasaste',
-        //html: '<img src="ganaste.jpg" alt="" />',
-        confirmButtonText: 'Volver a Jugar',
-        //confirmButtonText: 'Volver a Jugar',
-        //width: '45%',
-        padding: '1rem',
-        background: '#000',
-        //grow: 'row',
-        backdrop: true,
-        //timer: 5000,
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        allowEnterKey: true,
-        stopKeydownPropagation: false,
-        imageUrl: 'js/perdiste.jpg',
-        imageWidth: '100%',
-        imageHeight: '50vh',
-        imageAlt: 'bob esponja',
-    
-    })
+    Swal.fire({
+      title: "PERDISTE !!!!",
+      text: "Fracasaste",
+      //html: '<img src="ganaste.jpg" alt="" />',
+      confirmButtonText: "Volver a Jugar",
+      //confirmButtonText: 'Volver a Jugar',
+      //width: '45%',
+      padding: "1rem",
+      background: "#000",
+      //grow: 'row',
+      backdrop: true,
+      //timer: 5000,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: true,
+      stopKeydownPropagation: false,
+      imageUrl: "js/perdiste.jpg",
+      imageWidth: "100%",
+      imageHeight: "50vh",
+      imageAlt: "bob esponja",
+    });
   }
 }
-
-
-
-
-
-
