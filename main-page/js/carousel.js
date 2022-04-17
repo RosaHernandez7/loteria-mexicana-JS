@@ -17,32 +17,64 @@ img_array = img_array.sort(function () {
 // alert(img_array); //para corroborar el orden del arreglo
 
 //Se agrega evento onclick al boton
-btn_sig.onclick = iniciarJuego();
+// btn_sig.addEventListener("click", iniciarJuego());
 
+iniciarJuego();
 /*******Función para mostrar la baraja*******/
 
 let image = document.getElementById("imgBaraja");
+/**falla el boton */
+// function iniciarJuego() {
+//   // btn_sig.removeEventListener("click", iniciarJuego());
+//   let index = 0; //indice del arreglo de imágenes
+//   btn_sig.addEventListener("click", (e) => {
+//     // btn_sig.removeEventListener("click", this);
+//     const myInterval = setInterval(function slide() { 
+//       //   alert("index -> "+ index);
+//       image.src = img_array[index];
+//       index++;
+//       console.log("indxex: " + index);
+//       if (index >= img_array.length) {
+        
+
+//         if(index===53)
+//         {  
+//            validacion(); //todavia hace falta gregar la parte donde se llega a la ultima carta y no se alcanza a seleccionar la carta del tablero y sale inmediatamente el modal
+//         }
+//         clearInterval(myInterval);
+//       }
+      
+//     }, 2000);
+//   });
+// }
+
 
 function iniciarJuego() {
+  // btn_sig.removeEventListener("click", iniciarJuego());
   let index = 0; //indice del arreglo de imágenes
   btn_sig.addEventListener("click", (e) => {
-    const myInterval = setInterval(function slide() {
+    // btn_sig.removeEventListener("click", this);
+    const myInterval = setInterval(function slide() { 
       //   alert("index -> "+ index);
       image.src = img_array[index];
       index++;
       console.log("indxex: " + index);
       if (index >= img_array.length) {
-        clearInterval(myInterval);
-      }
-      
-      if(index===53)
+        
+
+        if(index===53)
         {  
            validacion(); //todavia hace falta gregar la parte donde se llega a la ultima carta y no se alcanza a seleccionar la carta del tablero y sale inmediatamente el modal
         }
-
+        clearInterval(myInterval);
+      }
+      
     }, 2000);
   });
 }
+
+
+
 /******* Declaraciones y definiciones para marcar la casilla *******/
 let cartas = document.querySelectorAll(".cartaMarca > img");
 let dirImgBaraja = document.getElementById("imgBaraja").src;
@@ -65,7 +97,6 @@ function opacarCelda(e) {
     e.currentTarget.removeEventListener("click", opacarCelda); //se remueve el evento para que no aumente el contador de celdas marcadas
   }
 
-  
 }
 
 //ESTA FUNCION ES LA QUE GENERA QUE NO SE PUEDA REINCIAR 
@@ -77,7 +108,7 @@ function validacion() {
         text:  '¿Ya terminaste tus deberes?',
         //html: '<img src="ganaste.jpg" alt="" />',
         confirmButtonText: 'Salir del Juego',
-        //confirmButtonText: 'Volver a Jugar',
+        // confirmButtonText: 'Volver a Jugar',
         //width: '45%',
         padding: '1rem',
         background: '#000',

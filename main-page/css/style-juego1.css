@@ -1,42 +1,49 @@
-*{
-    padding: 0 !important;
-    margin: 0 !important;
+* {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* .titulo{
     height: 20vh;
 } */
-.img-titulo{
-    width: 100% !important; 
-    height: 20vh !important;
+.img-titulo {
+  width: 100% !important;
+  height: 20vh !important;
 }
-.tab-img{
-    /* background-color: aliceblue; */
-}
-.tab-fondo{
-    /* background-color: black; */
-    
-}
-.space-img{
-/* padding: 20px 30px !important ; */
-background-color: rgb(255, 253, 253);
-border-radius: .5em;
-padding: 5px;
-/* overflow: scroll; */
-}
-.cardCell{
-    margin: .5em !important;
-}
-.cr-tablero{
-    background-color: rgba(209, 47, 47, 0.678);
 
+.space-img {
+  /* padding: 20px 30px !important ; */
+  background-color: rgb(255, 253, 253);
+  border-radius: 0.5em;
+  padding: 5px;
+  /* overflow: scroll; */
 }
-.sp-tablero{
-    padding: 50px 30px !important ;
+.cardCell {
+  margin: 0.5em !important;
 }
-.img-card{
-    width: 100%;
-    height: 20vh  !important;
-    border-radius: .8em;
-    border: 1px solid black;
+.cr-tablero {
+  background-color: rgba(209, 47, 47, 0.514);
+}
+.sp-tablero {
+  padding: 50px 30px !important ;
+}
+.img-card {
+  /* width: 100%; */
+  /* height: 20vh  !important; */
+  border-radius: 0.8em;
+  border: 1px solid black;
+}
+
+/*estilos de la baraja*/
+
+.img-size-baraja {
+  width: 300px;
+  height: 350px !important ;
+  border: 1px solid black;
+  box-shadow: 3em;
+}
+
+.btn-start {
+  padding: 5px !important;
+  font-size: large;
 }
