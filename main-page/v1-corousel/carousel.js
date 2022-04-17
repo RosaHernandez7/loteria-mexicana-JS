@@ -81,3 +81,22 @@ function validacion(contador) {
     })
   }
 }
+
+
+//porblema del contador
+ //con addlistener no funciono 
+    // let imgCambiar = document.getElementById("imgd-" + numCarta); //celda donde se dio clic
+    // imgCambiar.addEventListener("click",(e)=>{
+    //   imgCambiar.style.opacity ="0.1";
+    //   console.log(contador);
+    //   contador++;
+    // });
+    //se presentaban varias adiciones al contador 
+    // document.getElementById("imgd-" + numCarta).style.opacity = "0.1";
+    // console.log(contador);
+    // contador++; //el contador aumenta sin parar, hallar na forma de con un solo clic para de generar aumentos
+     //el elemnto se debe ejecutar una sola vez por celda 
+    //marcar la carta internamente con una clase de que diga x
+    //si ese atributo es !=de x ahora si aumentar contador
+    //intente con jquery
+    //$("#imgd-"+numCarta).one( "click", function() { });

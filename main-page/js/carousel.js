@@ -10,103 +10,120 @@ for (
 ) {
   img_array.push("../main-page/images/baraja/" + i + ".jpg");
 }
-/*En este apartado desordene el array  de imágenes*/ //*****descomentar el desorden del arrya */
-img_array=img_array.sort(function(){
-    return Math.random() - 0.5 //por qué 0.5??????
-    });
-alert(img_array); //para corroborar el orden del arreglo
+/*******En este apartado desordene el array  de imágenes*******/ 
+img_array = img_array.sort(function () {
+  return Math.random() - 0.5; //por qué 0.5??????
+});
+// alert(img_array); //para corroborar el orden del arreglo
 
 //Se agrega evento onclick al boton
 btn_sig.onclick = iniciarJuego();
 
-/*Función principal*/
-let index = 0; //indice del arreglo de imágenes
+/*******Función para mostrar la baraja*******/
+
+let image = document.getElementById("imgBaraja");
 
 function iniciarJuego() {
+  let index = 0; //indice del arreglo de imágenes
   btn_sig.addEventListener("click", (e) => {
-    let image = document.getElementById("imgBaraja");
-    
     const myInterval = setInterval(function slide() {
-    //   alert("index -> "+ index);
+      //   alert("index -> "+ index);
       image.src = img_array[index];
       index++;
-
+      console.log("indxex: " + index);
       if (index >= img_array.length) {
         clearInterval(myInterval);
       }
+      
+      if(index===53)
+        {  
+           validacion(); //todavia hace falta gregar la parte donde se llega a la ultima carta y no se alcanza a seleccionar la carta del tablero y sale inmediatamente el modal
+        }
+
     }, 2000);
   });
 }
+/******* Declaraciones y definiciones para marcar la casilla *******/
+let cartas = document.querySelectorAll(".cartaMarca > img");
+let dirImgBaraja = document.getElementById("imgBaraja").src;
+let cont = 0;
 
-/*Función para marcar las casilla */
+for (let i = 0; i < cartas.length; i++) {
+  let casilla = cartas[i].getAttribute("id");
+  let imgCelda = document.getElementById(casilla);
 
-let contador = 0;
-
-function marcarCasilla(numCarta) {
-  let dirImg = document.getElementById("imgd-" + numCarta).src; //se obtiene direccion de la celda
-  let dirImgBaraja = document.getElementById("imgBaraja").src; //DIRECCION imagen actual en la baraja 
-  
-  if (dirImgBaraja === dirImg) {
-    document.getElementById("img-" + numCarta).style.opacity = "0.1";
-    contador++;
-  }
-
-  if (index===53) {//contador === 16 && 
-    validacion(contador);
-  }
-
-  //cada vez que el usuario presine inciar juego se debe resstablecer el tablero
+  imgCelda.addEventListener("click", opacarCelda);
+  console.log("esta en el for");
 }
-//ESTA FUNCION ES LA QUE GENERA QUE NO SE PUEDA REINCIAR 
-// function validacion(contador) {
-//     if (contador === 16) {
-//         // alert("Ganaste");
-//         Swal.fire({
-//           title: 'GANASTE :D',
-//           text:  '¿Ya terminaste tus deberes?',
-//           //html: '<img src="ganaste.jpg" alt="" />',
-//           confirmButtonText: 'Salir del Juego',
-//           //confirmButtonText: 'Volver a Jugar',
-//           //width: '45%',
-//           padding: '1rem',
-//           background: '#000',
-//           //grow: 'row',
-//           backdrop: true,
-//           //timer: 5000,
-//           allowOutsideClick: false,
-//           allowEscapeKey: false,
-//           allowEnterKey: true,
-//           stopKeydownPropagation: false,
-//           imageUrl: 'js/ganaste.jpg',
-//           imageWidth: '100%',
-//           imageHeight: '50vh',
-//           imageAlt: 'bob esponja',
-      
-//       })
-//     } else  {
-//       // alert("Perdiste");
-//         Swal.fire({
-//           title: 'PERDISTE !!!!',
-//           text:  'Fracasaste',
-//           //html: '<img src="ganaste.jpg" alt="" />',
-//           confirmButtonText: 'Volver a Jugar',
-//           //confirmButtonText: 'Volver a Jugar',
-//           //width: '45%',
-//           padding: '1rem',
-//           background: '#000',
-//           //grow: 'row',
-//           backdrop: true,
-//           //timer: 5000,
-//           allowOutsideClick: false,
-//           allowEscapeKey: false,
-//           allowEnterKey: true,
-//           stopKeydownPropagation: false,
-//           imageUrl: 'js/perdiste.jpg',
-//           imageWidth: '100%',
-//           imageHeight: '50vh',
-//           imageAlt: 'bob esponja',
-      
-//       })
-//     }
-//   }
+function opacarCelda(e) {
+  //Con - e.currentTarget.src - se obtiene la imagen a través del evento
+
+  if (image.src === e.currentTarget.src) {
+    cont++;
+    e.currentTarget.style.opacity = "0.1";
+    // console.log("cont: " + cont);
+    e.currentTarget.removeEventListener("click", opacarCelda); //se remueve el evento para que no aumente el contador de celdas marcadas
+  }
+
   
+}
+
+//ESTA FUNCION ES LA QUE GENERA QUE NO SE PUEDA REINCIAR 
+function validacion() {
+  if (cont === 16) {
+      // alert("Ganaste");
+      Swal.fire({
+        title: 'GANASTE :D',
+        text:  '¿Ya terminaste tus deberes?',
+        //html: '<img src="ganaste.jpg" alt="" />',
+        confirmButtonText: 'Salir del Juego',
+        //confirmButtonText: 'Volver a Jugar',
+        //width: '45%',
+        padding: '1rem',
+        background: '#000',
+        //grow: 'row',
+        backdrop: true,
+        //timer: 5000,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: true,
+        stopKeydownPropagation: false,
+        imageUrl: 'js/ganaste.jpg',
+        imageWidth: '100%',
+        imageHeight: '50vh',
+        imageAlt: 'bob esponja',
+    
+    });
+  } 
+  else  {
+    // alert("Perdiste");
+      Swal.fire({
+        title: 'PERDISTE !!!!',
+        text:  'Fracasaste',
+        //html: '<img src="ganaste.jpg" alt="" />',
+        confirmButtonText: 'Volver a Jugar',
+        //confirmButtonText: 'Volver a Jugar',
+        //width: '45%',
+        padding: '1rem',
+        background: '#000',
+        //grow: 'row',
+        backdrop: true,
+        //timer: 5000,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: true,
+        stopKeydownPropagation: false,
+        imageUrl: 'js/perdiste.jpg',
+        imageWidth: '100%',
+        imageHeight: '50vh',
+        imageAlt: 'bob esponja',
+    
+    })
+  }
+}
+
+
+
+
+
+
